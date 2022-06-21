@@ -1,35 +1,47 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Score from '../components/Score';
+import Quote from '../components/Quote';
 import './App.css';
-import { Component } from 'react';
-
 
 class App extends Component{
 
-  checkIfSelectedValid = (selected, quote) => {
+  constructor() {
+    super();
+    this.state = {
+      rank: 10,
+      route: 'home',
+      quote: 'lolz'
+    }
+  }
 
+  checkIfSelectedValid = (selected, quote) => {
+    
   }
 
   onButtonSelected = (buttonType) => {
     this.setState(Object.assign(this.state.selected, buttonType));
-    checkIfSelectedValid()
+    //checkIfSelectedValid()
   }
  render() {
+  const {route, rank, quote} = this.state;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      { route === 'home'
+          ? <div>
+              <Score
+                rank={rank}
+              />
+              <Quote
+                quote={quote}
+              />
+            </div>
+          : (
+             /* route === 'signin'
+             ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+             : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/> */
+             <p>loggedin</p>
+            )
+        }
     </div>
   );
   }
