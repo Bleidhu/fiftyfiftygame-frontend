@@ -1,7 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
 
-function App() {
+
+class App extends Component{
+
+  checkIfSelectedValid = (selected, quote) => {
+
+  }
+
+  onButtonSelected = (buttonType) => {
+    this.setState(Object.assign(this.state.selected, buttonType));
+    checkIfSelectedValid()
+  }
+ render() {
   return (
     <div className="App">
       <header className="App-header">
@@ -20,6 +32,7 @@ function App() {
       </header>
     </div>
   );
+  }
 }
 
 export default App;
