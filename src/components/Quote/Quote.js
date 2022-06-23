@@ -8,7 +8,7 @@ const Quote = ({quote}) => {
                 {`Your quote is:`}
             </div>
             <div className='black f1'>
-                {quote}
+                <p>{quote}</p>
             </div>
         </div>
         </div>
